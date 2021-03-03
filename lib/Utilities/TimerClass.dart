@@ -109,6 +109,16 @@ class TimerClass {
 
     int totalSeconds = (xHours * 3600) + (xMinutes * 60) + xSeconds;
     //play the timer
+    if (_sw.elapsed.inSeconds >= totalSeconds) {
+      //reset every thing after finish counting
+      pauseTimer();
+      resetTimer();
+      return hours.padLeft(2, "0") +
+          ":" +
+          minutes.padLeft(2, "0") +
+          ":" +
+          seconds.padLeft(2, "0");
+    }
     totalSeconds = (totalSeconds -
         _sw.elapsed.inSeconds); // updating seconds once we run the timer
 
