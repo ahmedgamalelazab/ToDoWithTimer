@@ -46,8 +46,14 @@ class _DataScreenState extends State<DataScreen> {
                           onPressed: () {
                             setState(
                               () {
+                                //remove
                                 xDataModel.jobToDoList.removeAt(index);
                                 xDataModel.timerList.removeAt(index);
+                                //reset every thing to re edit from main screen
+                                xDataModel.setHours(hh: "0");
+                                xDataModel.setMinutes(mm: "0");
+                                xDataModel.setSeconds(ss: "0");
+                                xDataModel.setText(text: "");
                               },
                             );
                           },
